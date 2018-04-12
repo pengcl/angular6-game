@@ -7,6 +7,11 @@ var TeamsSchema = new mongoose.Schema({
     en: String
   },
   country: String,
+  lineup: {
+    main: Array,
+    bench: Array,
+    reserve: Array
+  },
   meta: {
     createAt: {
       type: Date,

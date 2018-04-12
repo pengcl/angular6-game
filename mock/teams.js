@@ -1,4 +1,4 @@
-export const mockClubs = [
+exports.TEAMS = [
     {
         en: 'Juventus',
         cn: '尤文图斯',

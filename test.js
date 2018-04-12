@@ -1,1 +1,3 @@
-db.createUser({user: 'game', pwd: 'Pengcl19821025', roles: [{role: "readWrite", db: "game"}]});
+var _ = require('underscore');
+
+console.log(_.isEqual({en: 'Italy', cn: '意大利'}, {en: 'Italy', cn: '意大利'}));
