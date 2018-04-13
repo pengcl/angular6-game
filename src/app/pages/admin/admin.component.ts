@@ -1,11 +1,10 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
 
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./admin.component.scss']
 })
 
 export class AdminComponent {

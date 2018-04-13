@@ -1,0 +1,15 @@
+<ul class="players" [dragula]='"bag-one"' [dragulaModel]="lineup.main">
+  <li class="player" *ngFor="let player of lineup.main">
+    <span>{{player.name.cn}}</span>
+  </li>
+</ul>
+
+<ul class="players" [dragula]='"bag-one"' [dragulaModel]="lineup.bench">
+  <li class="player" *ngFor="let player of lineup.bench">
+    <span>{{player.name.cn}}</span>
+  </li>
+</ul>
+
+<div *ngFor="let player of bench">
+  <span>{{player.name.cn}}</span>
+</div>

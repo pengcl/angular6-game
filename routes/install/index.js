@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var _ = require('underscore');
 var Countries = require('../../utils/db/modules/countries');//导入模型数据模块
 var Tags = require('../../utils/db/modules/tags');//导入模型数据模块
 var Types = require('../../utils/db/modules/types');//导入模型数据模块
 var Teams = require('../../utils/db/modules/teams');//导入模型数据模块
 var Players = require('../../utils/db/modules/players');//导入模型数据模块
+var loadPlayers = require('../../utils/fake/players');
 
 var {getIndex} = require('../../utils/func/getIndex');
 
@@ -14,18 +16,20 @@ var {TYPES} = require('../../mock/types');
 var {TEAMS} = require('../../mock/teams');
 
 router.get('/install', function (req, res, next) {
-  Countries.findAll().then(countries => {
-    if (countries.length === 0) {
-      COUNTRIES.forEach(item => {
-        (function (item) {
-          var country = new Countries({
-            name: item
-          });
-          country.save();
-        })(item);
-      });
-    }
-  })
+  const options = {};
+  Countries.findAll()
+    .then(countries => {
+      if (countries.length === 0) {
+        COUNTRIES.forEach(item => {
+          (function (item) {
+            var country = new Countries({
+              name: item
+            });
+            country.save();
+          })(item);
+        });
+      }
+    })
     .then(Tags.findAll().then(tags => {
       if (tags.length === 0) {
         TAGS.forEach(item => {
@@ -71,11 +75,15 @@ router.get('/install', function (req, res, next) {
               team.save();
             })(item);
           });
-          res.send('done');
+          //res.send('done');
         } else {
-          res.send('done');
+          //res.send('done');
         }
       });
+    }))
+    .then(Players.findAll().then(players => {
+      loadPlayers(100);
+      res.send('done');
     }))
 });
 
