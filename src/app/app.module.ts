@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
+import {DragulaModule} from "ng2-dragula";
 
 // pipes
 import {PIPES_DECLARATIONS} from './pipes';
@@ -40,7 +41,8 @@ import {AuthGuard} from './_guards/auth';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DragulaModule
   ],
   providers: [
     AuthGuard,

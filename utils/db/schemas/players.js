@@ -11,11 +11,16 @@ var PlayersSchema = new mongoose.Schema({
   height: Number,
   uniformNo: Number,
   team: String,
-  position: [],
+  positions: Array,
+  position: String,
   star: Number,
   level: Number,
   type: String,
   tag: String,
+  label: String,
+  goodAt: Array,
+  exp: Number,
+  mark: String,
   description: {
     type: String,
     default: '...'
@@ -112,6 +117,7 @@ var PlayersSchema = new mongoose.Schema({
 //每次执行都会调用,时间更新操作
 PlayersSchema.pre('save', function (next) {
   if (this.isNew) {
+    this.exp = 0;
     this.meta.createAt = this.meta.updateAt = Date.now();
   } else {
     this.meta.updateAt = Date.now();
@@ -126,6 +132,9 @@ PlayersSchema.statics = {
   },
   findById: function (id, cb) { //根据id查询单条数据
     return this.findOne({_id: id}).exec(cb) //回调
+  },
+  findByTeam: function (team, cb) { //根据id查询单条数据
+    return this.find({team: team}).exec(cb) //回调
   }
 };
 //暴露出去的方法

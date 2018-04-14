@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var install = require('./routes/install');
+var team = require('./routes/team');
+var player = require('./routes/player');
 
 var app = express();
 
@@ -32,6 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 /*app.use(utils.sign(config));*/
 
 app.use('/install', install);
+app.use('/team', team);
+app.use('/player', player);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
