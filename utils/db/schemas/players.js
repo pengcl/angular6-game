@@ -1,22 +1,25 @@
 var mongoose = require('mongoose');
+var getPosition = require('../../func/getPosition');//导入模型数据模块
 //申明一个mongoose对象
 
 var PlayersSchema = new mongoose.Schema({
+  id: Number,
   name: {
     cn: String,
     en: String
   },
-  country: String,
+  country: Number,
   weight: Number,
   height: Number,
   uniformNo: Number,
-  team: String,
+  team: Number,
   positions: Array,
   position: String,
   star: Number,
   level: Number,
-  type: String,
-  tag: String,
+  type: Number,
+  tag: Number,
+  avatar: String,
   label: String,
   goodAt: Array,
   exp: Number,
@@ -122,6 +125,17 @@ PlayersSchema.pre('save', function (next) {
   } else {
     this.meta.updateAt = Date.now();
   }
+  this.positions = getPosition(this.ability, this.level);
+  for (let item in this.ability) {
+    this.ability[item].value = 0;
+    this.ability[item].len = 0;
+
+    for (let property in  this.ability[item].property) {
+      this.ability[item].len = this.ability[item].len + 1;
+      console.log(this.ability[item].len);
+      this.ability[item].value = this.ability[item].value + this.ability[item].property[property];
+    }
+  }
   next();
 });
 
@@ -132,6 +146,9 @@ PlayersSchema.statics = {
   },
   findById: function (id, cb) { //根据id查询单条数据
     return this.findOne({_id: id}).exec(cb) //回调
+  },
+  findByCid: function (id, cb) { //根据id查询单条数据
+    return this.find({id: id}).exec(cb) //回调
   },
   findByTeam: function (team, cb) { //根据id查询单条数据
     return this.find({team: team}).exec(cb) //回调

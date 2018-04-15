@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 //申明一个mongoose对象
 
 var TeamsSchema = new mongoose.Schema({
+  id: Number,
   name: {
     cn: String,
     en: String

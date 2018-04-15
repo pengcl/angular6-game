@@ -14,6 +14,7 @@ var {COUNTRIES} = require('../../mock/countries');
 var {TAGS} = require('../../mock/tags');
 var {TYPES} = require('../../mock/types');
 var {TEAMS} = require('../../mock/teams');
+var {PLAYERS} = require('../../mock/players');
 
 router.get('/install', function (req, res, next) {
   const options = {};
@@ -22,9 +23,7 @@ router.get('/install', function (req, res, next) {
       if (countries.length === 0) {
         COUNTRIES.forEach(item => {
           (function (item) {
-            var country = new Countries({
-              name: item
-            });
+            var country = new Countries(item);
             country.save();
           })(item);
         });
@@ -34,9 +33,7 @@ router.get('/install', function (req, res, next) {
       if (tags.length === 0) {
         TAGS.forEach(item => {
           (function (item) {
-            var tag = new Tags({
-              name: item
-            });
+            var tag = new Tags(item);
             tag.save();
           })(item);
         });
@@ -46,45 +43,41 @@ router.get('/install', function (req, res, next) {
       if (types.length === 0) {
         TYPES.forEach(item => {
           (function (item) {
-            var type = new Types({
-              name: item
-            });
+            var type = new Types(item);
             type.save();
           })(item);
         });
       }
     }))
-    .then(Teams.findAll().then(teams => {
-      Countries.findAll().then(countries => {
-        if (teams.length === 0) {
-          TEAMS.forEach(item => {
+    .then(() => {
+      PLAYERS.forEach(item => {
+        Players.findByCid(item.id).then(players => {
+          if(players.length === 0){
             (function (item) {
-              var team = new Teams({
-                name: {
-                  en: item.en,
-                  cn: item.cn
-                },
-                country: (function () {
-                  for (let i = 0; i < countries.length; i++) {
-                    if (countries[i].name.en === item.country.en) {
-                      return countries[i]._id
-                    }
-                  }
-                })()
-              });
-              team.save();
+              var player = new Players(item);
+              player.save();
             })(item);
-          });
-          //res.send('done');
-        } else {
-          //res.send('done');
-        }
+          }
+          res.send('done');
+        })
       });
-    }))
-    .then(Players.findAll().then(players => {
-      loadPlayers(100);
-      res.send('done');
-    }))
+    })
+  /*.then(Teams.findAll().then(teams => {
+    Countries.findAll().then(countries => {
+      if (teams.length === 0) {
+        TEAMS.forEach(item => {
+          (function (item) {
+            var team = new Teams(item);
+            team.save();
+          })(item);
+        });
+      }
+    });
+  }))
+  .then(Players.findAll().then(players => {
+    loadPlayers();
+    res.send('done');
+  }))*/
 });
 
 module.exports = router;

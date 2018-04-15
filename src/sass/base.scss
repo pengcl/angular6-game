@@ -1,0 +1,40 @@
+body {
+  font-size: 0.14rem;
+}
+
+sub {
+  vertical-align: baseline;
+  font-size: 75%;
+  color: #999;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.right {
+  float: right;
+}
+
+.container {
+  position: absolute;
+  top: 15%;
+  height: 85%;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.content-scrollable {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  background: #f8f8f8;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}

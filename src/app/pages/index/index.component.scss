@@ -1,8 +1,94 @@
-.demo {
-  font-size: 0.13rem;
-}
-.player {
-  font-size: 0.13rem;
+.lineup {
+  height: 100%;
+  overflow: hidden;
+  .main {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    .formation {
+      height: 80%;
+      position: absolute;
+      left: 50%;
+      bottom: 5%;
+      transform: translate3d(-50%, 0, 0);
+      img {
+        display: block;
+        height: 100%;
+        margin: 0 auto;
+      }
+      .play-ground {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-size: 0.1rem;
+        .player {
+          text-align: center;
+          width: 0.32rem;
+          height: 0.32rem;
+          color: #fff;
+        }
+        .position {
+          position: absolute;
+          height: 0.32rem;
+        }
+        .ST {
+          width: 50%;
+          top: 5%;
+          left: 25%;
+        }
+        .AMF {
+          width: 50%;
+          top: 12%;
+          left: 25%;
+        }
+        .LMF,.RMF {
+          width: 40%;
+          top: 28%;
+        }
+        .LMF {
+          left: 0;
+        }
+        .CMF {
+          width: 50%;
+          top: 28%;
+          left: 25%;
+        }
+        .RMF {
+          right: 0%;
+        }
+        .DMF {
+          width: 50%;
+          top: 35%;
+          left: 25%;
+        }
+        .LB,.RB {
+          width: 50%;
+          bottom: 15%;
+        }
+        .LB {
+          left: 0;
+        }
+        .CB {
+          width: 50%;
+          bottom: 25%;
+          left: 25%;
+        }
+        .RB {
+          right: 0;
+        }
+        .GK {
+          width: 30%;
+          bottom: 8%;
+          left: 35%;
+        }
+      }
+    }
+  }
+  .bench, .reserve {
+    height: 50%;
+    overflow: hidden;
+  }
 }
 
 ul {

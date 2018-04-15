@@ -1,15 +1,105 @@
-<ul class="players" [dragula]='"bag-one"' [dragulaModel]="lineup.main">
-  <li class="player" *ngFor="let player of lineup.main">
-    <span>{{player.name.cn}}</span>
-  </li>
-</ul>
+<app-navbar></app-navbar>
+<div class="container">
+<div class="lineup weui-flex">
+    <div class="weui-flex__item">
+      <div class="main">
+        <div class="formation">
+          <div class="play-ground f-3-5-2">
+            <div class="ST position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.ST">
+              <span *ngFor="let player of lineup.main.ST" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+            <div class="AML position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.AML">
+              <span *ngFor="let player of lineup.main.AML" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+            <div class="AMF position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.AMF">
+              <span *ngFor="let player of lineup.main.AMF" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+            <div class="AMR position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.AMR">
+              <span *ngFor="let player of lineup.main.AMR" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+            <div class="LMF position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.LMF">
+              <span *ngFor="let player of lineup.main.LMF" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+            <div class="CMF position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.CMF">
+              <span *ngFor="let player of lineup.main.CMF" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+            <div class="RMF position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.RMF">
+              <span *ngFor="let player of lineup.main.RMF" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+            <div class="DMF position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.DMF">
+              <span *ngFor="let player of lineup.main.DMF" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+            <div class="LB position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.LB">
+              <span *ngFor="let player of lineup.main.LB" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+            <div class="CB position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.CB">
+              <span *ngFor="let player of lineup.main.CB" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+            <div class="RB position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.RB">
+              <span *ngFor="let player of lineup.main.RB" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+            <div class="GK position weui-flex" [dragula]='"lineup"' [dragulaModel]="lineup.main.GK">
+              <span *ngFor="let player of lineup.main.GK" class="player weui-flex__item">
+                <img src="/assets/images/lineup/avatars/NONE/Vieri.png">
+                <span class="name">{{player.name}}</span>
+              </span>
+            </div>
+          </div>
+          <img src="/assets/images/lineup/court_map_mask.png">
+        </div>
+      </div>
+    </div>
+    <div class="weui-flex__item">
+      <div class="bench">1</div>
+      <div class="reserve">1</div>
+    </div>
+  </div>
+<!--  <ul class="players" [dragula]='"bag-one"' [dragulaModel]="lineup.main">
+    <li class="player" *ngFor="let player of lineup.main">
+      <span>{{player.name.cn}}</span>
+    </li>
+  </ul>
 
-<ul class="players" [dragula]='"bag-one"' [dragulaModel]="lineup.bench">
-  <li class="player" *ngFor="let player of lineup.bench">
-    <span>{{player.name.cn}}</span>
-  </li>
-</ul>
+  <ul class="players" [dragula]='"bag-one"' [dragulaModel]="lineup.bench">
+    <li class="player" *ngFor="let player of lineup.bench">
+      <span>{{player.name.cn}}</span>
+    </li>
+  </ul>
 
-<div *ngFor="let player of bench">
-  <span>{{player.name.cn}}</span>
+  <div *ngFor="let player of bench">
+    <span>{{player.name.cn}}</span>
+  </div>-->
 </div>

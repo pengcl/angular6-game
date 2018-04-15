@@ -16,12 +16,7 @@
 <script>
   const $html = document.getElementsByTagName('html');
   const $body = document.getElementsByTagName('body');
-  console.log($html);
-  /*$(document).ready(function () {
-    var $container = $("body");
-    $("html").css("font-size", ($container.width() / 375) * parseInt($("html").css("font-size")));
-  });*/
-
+  $html[0].style.fontSize = $body[0].clientWidth / 667 * 100 + 'px';
 </script>
 </body>
 </html>

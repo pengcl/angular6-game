@@ -200,6 +200,7 @@ const loadPlayers = function (count) {
       });
     })
     .then(() => {
+      let count = 1;
       teams.forEach((team, index) => {
 
         for (var i = 0; i < 20; i++) {
@@ -225,20 +226,22 @@ const loadPlayers = function (count) {
           let country = countries[fake.score(0, countries.length - 1)];
 
           const player = new Players({
+            id: count,
             name: {
               en: faker.name.findName(),
               cn: faker.name.findName()
             },
-            country: country._id,
+            country: country.id,
             weight: fake.score(60, 100),
             height: fake.score(160, 200),
             uniformNo: fake.score(1, 22),
-            team: team._id,
+            team: team.id,
             positions: position.positions,
             star: fake.score(1, 3),
             level: 1,
-            type: type._id,
-            tag: tag._id,
+            type: type.id,
+            tag: tag.id,
+            avatar:'/assets/images/lineup/avatars/players/' + count + '.png',
             description: faker.lorem.sentences(),
             ability: position.ability,
             owner: '',
@@ -251,6 +254,7 @@ const loadPlayers = function (count) {
           (function (player) {
             player.save().then();
           })(player);
+          count = count + 1;
         }
       });
     });
